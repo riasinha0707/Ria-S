@@ -384,13 +384,13 @@ export default function App() {
                 Mumbai, India
               </div>
               <a 
-                href="https://linkedin.com/in/ria-sinha" 
+                href="https://www.linkedin.com/in/ria-sinha-70b519318?originalSubdomain=in" 
                 target="_blank" 
                 rel="noreferrer"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Linkedin className="w-5 h-5 text-navy-500" />
-                linkedin.com/in/ria-sinha
+                linkedin.com/in/ria-sinha-70b519318
               </a>
             </div>
 
