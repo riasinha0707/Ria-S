@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #e6f1ff;
+  --color-navy-100: #cce3ff;
+  --color-navy-200: #99c7ff;
+  --color-navy-300: #66abff;
+  --color-navy-400: #338fff;
+  --color-navy-500: #0073ff;
+  --color-navy-600: #005ccb;
+  --color-navy-700: #004699;
+  --color-navy-800: #002f66;
+  --color-navy-900: #001933;
+  --color-navy-950: #000d1a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
