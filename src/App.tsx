@@ -104,57 +104,77 @@ export default function App() {
   return (
     <div className="bg-[#000814] text-slate-200 font-sans selection:bg-navy-500 selection:text-white">
       {/* 1. HERO SECTION */}
-      <section id="home" className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-navy-900/10 to-transparent pointer-events-none" />
+      <section id="home" className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-20 overflow-hidden">
+        {/* CSS Backdrop: Minimal Deep Navy Gradient */}
+        <div className="absolute inset-0 z-0 bg-[#000814]">
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-[#000814] to-black" />
+          <div className="absolute top-1/4 -right-20 w-96 h-96 bg-navy-600/10 blur-[120px] rounded-full" />
+          <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-navy-800/10 blur-[120px] rounded-full" />
+        </div>
         
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl space-y-8"
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="relative z-10 max-w-4xl pt-20"
         >
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+          <div className="space-y-4 mb-10">
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-2">
               Ria Sinha
             </h1>
-            <p className="text-xl md:text-2xl font-medium text-navy-400 uppercase tracking-widest">
+            <p className="text-xl md:text-2xl font-medium text-navy-400 uppercase tracking-[0.3em]">
               Digital Strategy and Growth
             </p>
           </div>
 
-          <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl">
-            "I work on research-led digital strategy, combining analytics, content, and execution to improve acquisition, positioning, and scalable growth. 
-            My experience spans financial services, digital marketing, and ecosystem operations, with a focus on structured problem-solving and measurable outcomes."
+          <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mb-12 font-light">
+            "I work on research-led digital strategy, combining analytics, content, and execution to improve acquisition, positioning, and scalable growth."
           </p>
 
-          <div className="flex flex-wrap gap-6 text-sm md:text-base text-slate-500">
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-navy-500" />
-              Mumbai, India
-            </div>
-            <a href="mailto:ria.sinha0707@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Mail className="w-4 h-4 text-navy-500" />
-              ria.sinha0707@gmail.com
-            </a>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-navy-500" />
-              +91 9892546077
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-wrap gap-4 mb-20">
             <a 
               href="#work" 
-              className="px-8 py-3 bg-navy-600 hover:bg-navy-500 text-white rounded-md font-semibold transition-all transform hover:-translate-y-1"
+              className="px-10 py-4 bg-navy-600 hover:bg-navy-500 text-white rounded-md font-semibold transition-all transform hover:-translate-y-1 shadow-lg shadow-navy-900/40"
             >
               View Work
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-3 border border-slate-700 hover:border-slate-500 text-white rounded-md font-semibold transition-all"
+              className="px-10 py-4 border border-slate-700 hover:border-slate-500 text-white rounded-md font-semibold transition-all backdrop-blur-sm"
             >
               Contact
             </a>
+          </div>
+
+          {/* Worked With Section */}
+          <div className="pt-12 border-t border-white/10 max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-8">
+              Worked with 9+ brands
+            </p>
+            <div className="flex flex-wrap gap-8 md:gap-12 items-center">
+              {[
+                { name: 'KPMG', src: 'https://logo.clearbit.com/kpmg.com' },
+                { name: 'Axis Bank', src: 'https://logo.clearbit.com/axisbank.co' },
+                { name: 'Finnet', src: 'https://logo.clearbit.com/finnetmedia.com' },
+                { name: 'Greensole', src: 'https://logo.clearbit.com/greensole.com' }
+              ].map((brand, i) => (
+                <motion.div
+                  key={brand.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + (i * 0.1) }}
+                  whileHover={{ scale: 1.1, opacity: 1 }}
+                  className="grayscale invert brightness-200 opacity-60 transition-all cursor-default"
+                >
+                  <img 
+                    src={brand.src} 
+                    alt={brand.name} 
+                    className="h-5 md:h-7 w-auto object-contain"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </section>
