@@ -12,10 +12,43 @@
   --color-navy-800: #002f66;
   --color-navy-900: #001933;
   --color-navy-950: #000d1a;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 8s ease-in-out infinite 1s;
+  --animate-float-slow: float 12s ease-in-out infinite 2s;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #000814;
+  }
+  
+  body {
+    @apply antialiased text-slate-200;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-2xl bg-black/40 border border-white/5;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(51, 143, 255, 0.3);
+  }
+  
+  .bg-glow {
+    filter: blur(120px);
+    opacity: 0.15;
   }
 }
